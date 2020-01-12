@@ -1,5 +1,7 @@
 
-import "../css/main.css";
+//import "../css/main.css";
+import "../css/main.scss";
+
 
 // Global app controller 
 import x from './test';
