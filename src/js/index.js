@@ -7,3 +7,7 @@ import "../css/main.scss";
 import x from './test';
 const y = 23;
 console.log(`${x} and ${y}`);
+
+
+//test
+console.log('test');
