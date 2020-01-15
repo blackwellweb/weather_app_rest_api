@@ -40,6 +40,42 @@ module.exports = merge(common, {
                     'css-loader',      // 2. Turns css into commonjs
                     'sass-loader']     // 1. Turns sass into css
             },
+            {
+                test: /\.(svg|png|jpg|gif)$/,
+                use: [{
+                    loader: 'file-loader',
+                    options: {
+                        name: '[name].[hash].[ext]',
+                        outputPath: 'imgs',
+                        esModule: false,
+                    }
+                },
+                {
+                    loader: 'image-webpack-loader',
+                    options: {
+                        mozjpeg: {
+                            progressive: true,
+                            quality: 65
+                        },
+                        // optipng.enabled: false will disable optipng
+                        optipng: {
+                            enabled: false,
+                        },
+                        pngquant: {
+                            quality: [0.65, 0.90],
+                            speed: 4
+                        },
+                        gifsicle: {
+                            interlaced: false,
+                        },
+                        // the webp option will enable WEBP
+                        webp: {
+                            quality: 75
+                        }
+                    }
+                },
+                ]
+            }
         ]
     }
 });
