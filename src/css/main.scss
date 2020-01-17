@@ -1,10 +1,11 @@
 // Import node package example
 //@import "~randomPackage";
 
-$primary:purple;
+$primary:rgb(0,48,255);
 
 body{
     background: $primary;
+    background: linear-gradient(90deg, rgba(0,48,255,1) 0%, rgba(0,121,255,1) 42%, rgba(0,212,255,1) 100%);
 }
 
 .test--img{

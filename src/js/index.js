@@ -9,5 +9,33 @@ const y = 23;
 console.log(`${x} and ${y}`);
 
 
-//test
-//console.log('test');
+
+/* Js doc examples -------------------------------------------------*/
+/*------------------------------------------------------------------*/
+/*------------------------------------------------------------------*/
+// @ts-check
+
+
+/**
+ * Student Name
+ * &type {string}
+ */
+const studentName = 'John Doe';
+
+/**
+ * Array of Grades
+ * @type {Array<number>}
+ */
+const grades = [98, 97.7, 76, 89];
+
+
+
+
+/**
+ * Todo object
+ * @type {{id: number, text: string}}
+ */
+const todo = {
+    id: 1,
+    text: 'Hello',
+};

@@ -16,14 +16,15 @@ module.exports = merge(common, {
         new HtmlWebpackPlugin({
             filename: 'index.html',
             template: './src/index.html',
-        })
+        }),
+        require('autoprefixer')
     ],
     module: {
         rules: [
             {
                 test: /\.scss$/i,
                 use: ['style-loader',  // 3. Injects styles into DOM
-                    'css-loader',      // 2. Turns css into commonjs
+                    'css-loader',       // 2. Turns css into commonjs
                     'sass-loader']     // 1. Turns sass into css
             },
             {
