@@ -17,7 +17,6 @@ module.exports = merge(common, {
             filename: 'index.html',
             template: './src/index.html',
         }),
-        require('autoprefixer')
     ],
     module: {
         rules: [

@@ -39,3 +39,27 @@ const todo = {
     id: 1,
     text: 'Hello',
 };
+
+
+
+
+
+/**
+ * Calculate Tax
+ * @param {number} amount - Total amount
+ * @param {number} tax - Tax percentage
+ * @returns {string} - Total with a dollar sign
+ */
+const calculateTax = (amount, tax) => {
+    return `$${amount + tax * amount}`;
+}
+
+//console.log(calculateTax(100, 0.1));
+
+
+/**
+ * A student
+ * @typeef {Object} student
+ */
+
+
