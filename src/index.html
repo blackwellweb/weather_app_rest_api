@@ -6,13 +6,50 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="shortcut icon" type="image/svg" href="./assets/favicon/favicon.svg">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
     <title>Weather app</title>
 </head>
 
 <body>
-    <!-- webpack will remove this comment -->
-    <img class="test--img" src="./assets/svgs/wind.svg" alt="test img">
-    <img class="test--img" src="./assets/images/aerial-view-of-green-mountain-163550.jpg" alt="test img">
+    <div class="main">
+        <header class="header">
+            <div class="header__logo"><span>Logo</span></div>
+            <div class="header__searchBar"><input type="text"><input type="submit"><i class="fas fa-search"></i></div>
+        </header>
+        <section class="mainView">
+            <h1 class="headingPrimary">
+                <span class="headingPrimary--main">Today</span>
+                <span class="headingPrimary--sub">Mostly Cloudy</span>
+            </h1>
+            <h2 class="headingSecondary">25°</h2>
+            <div class="mainView__icon">
+                <img class="mainView__icon--large" src=".//assets/svgs/clouds.svg" alt="Weather Icon Cloudy">
+            </div>
+        </section>
+        <nav>
+            <ul>
+                <li><button class="backBtn--inactive"><i class="fas fa-chevron-left"></i></button></li>
+                <li><button class="forwardBtn--active">Tomorrow<i class="fas fa-chevron-right"></i></button></li>
+            </ul>
+        </nav>
+        <section class="hourlyForecast">
+            <div class="hourlyForecast__forecast">
+                <h3 class="forecast__title">
+                    <span class="forecast__title--sub">Now</span>
+                    <span class="forecast__title--main">Cloudy 8°</span>
+                </h3>
+                <div class="forecast__info">
+                    <ul>
+                        <li>Wind: 2mph</li>
+                        <li>Pressure: 1028mb</li>
+                        <li>Humidity: 86%</li>
+                    </ul>
+                </div>
+                <div class="forecast__icon"><img class="forecast__icon--small" src=".//assets/svgs/clouds.svg" alt="Small Weather Icon Cloudy"></div>
+            </div>
+        </section>
+    </div>
 </body>
 
 </html>
