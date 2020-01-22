@@ -2,13 +2,113 @@
 //@import "~randomPackage";
 
 $primary:rgb(0,48,255);
+$secondary: hsl(225, 57%, 67%);
+
+$primaryFont: hsl(216, 33%, 97%);
+$secondaryFont: hsl(209, 18%, 30%);
+
 
 // body{
 //     background: $primary;
 //     background: linear-gradient(90deg, rgba(0,48,255,1) 0%, rgba(0,121,255,1) 42%, rgba(0,212,255,1) 100%);
 // }
 
-.test--img{
-    height: auto;
-    width: 100px;
+*,
+*::after,
+*::before{
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
 }
+
+html{
+    font-size: 62.5%; 
+}
+
+body{
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+    line-height: 1.7;
+    box-sizing: border-box;
+
+    // just for testing
+    background-color: hsl(227, 42%, 51%);
+}
+
+
+/* Header ----------------------------------------------------------*/
+/*------------------------------------------------------------------*/
+/*------------------------------------------------------------------*/
+
+
+.main{
+    padding: 1.2rem;
+}
+
+.header{
+    display: grid;
+    width: 100%;
+    grid-template-columns: 1fr;
+    grid-template-areas: 
+    "logo searchBar";
+    align-items: center;
+    color: $primaryFont;
+
+    &__logo{
+        grid-area: logo;
+        font-size: 2rem;
+        text-transform: capitalize;
+        padding: 0.4rem;
+    }
+
+    &__searchBar{
+        grid-area: searchBar;
+        padding: 0.4rem;
+        background-color: $secondary;
+        border-radius: 0.4rem;
+    }
+
+    &__searchBar input{
+        -webkit-appearance: none;
+        background-color: $secondary;
+        color: $primaryFont;
+        border: 0;
+    }
+
+    &__searchBar input:focus{
+        outline: none;
+    }
+
+    &__searchBar button[type=submit]{
+        cursor: pointer;
+        color: $primaryFont;
+        border:none;
+        background-color: none;
+        display: inline-block;
+        border: none;
+        margin: 0;
+        text-decoration: none;
+        background: $secondary;
+        font-family: sans-serif;
+        cursor: pointer;
+        text-align: center;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+    }
+
+    // &__searchBar input[type=submit]::after{
+    //     content: "\f058";
+    //     font-family: "Font Awesome 5 Free";
+    //     padding: 0px 4px 0px 0px;
+    // }
+
+    // &__searchBar input[type=submit]:before{
+    //     display: inline-block;
+    //     font-style: normal;
+    //     font-variant: normal;
+    //     text-rendering: auto;
+    //     -webkit-font-smoothing: antialiased;
+    // }
+
+}
+
