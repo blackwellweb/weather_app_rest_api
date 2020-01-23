@@ -5,13 +5,14 @@ $primary:rgb(0,48,255);
 $secondary: hsl(225, 57%, 67%);
 
 $primaryFont: hsl(216, 33%, 97%);
-$secondaryFont: hsl(209, 18%, 30%);
+$secondaryFont: hsl(221, 68%, 93%);
 
 
-// body{
-//     background: $primary;
-//     background: linear-gradient(90deg, rgba(0,48,255,1) 0%, rgba(0,121,255,1) 42%, rgba(0,212,255,1) 100%);
-// }
+// Just for testing 
+img{
+    height: auto;
+    width: 10.8rem;
+}
 
 *,
 *::after,
@@ -118,3 +119,53 @@ body{
 /* mainView ----------------------------------------------------------*/
 /*------------------------------------------------------------------*/
 /*------------------------------------------------------------------*/
+
+.mainView{
+    display: grid;
+    //grid-template-columns: repeat(2, 1fr);
+    grid-template-areas: 
+    "heading heading" 
+    "icon temp";
+    margin: 5rem 4rem;
+    color: $primaryFont;
+
+
+    &__headingPrimary{
+        grid-area: heading;
+        padding-bottom: 0.8rem;
+    }
+
+    &__headingPrimary .headingPrimary--sub{
+        display: block;
+        font-weight: 300;
+        font-size: 1.4rem;
+        line-height: 1.2;
+        color: $secondaryFont;
+    }
+
+    &__headingPrimary .headingPrimary--main{
+        display: block;
+        font-weight: 600;
+        line-height: 1.4;
+        font-size: 2.4rem;
+        color: $primaryFont;
+    }
+
+    &__headingSecondary{
+        grid-area: temp;
+        justify-self: end;
+        font-weight: 300;
+        font-size: 9.6rem;
+        line-height: 1;
+    }
+
+    &__icon{
+        grid-area: icon;
+    }
+
+
+
+}
+
+
+
