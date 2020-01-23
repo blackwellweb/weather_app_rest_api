@@ -66,6 +66,7 @@ body{
         padding: 0.4rem;
         background-color: $secondary;
         border-radius: 0.4rem;
+        padding: 0.6rem;
     }
 
     &__searchBar input{
@@ -73,11 +74,21 @@ body{
         background-color: $secondary;
         color: $primaryFont;
         border: 0;
+        max-width: 12rem;
+        text-transform: uppercase;
     }
 
     &__searchBar input:focus{
         outline: none;
     }
+
+    &__searchBar input::placeholder{
+        text-transform: uppercase;
+        font-weight: 500;
+        font-size: 1.4rem;
+    }
+
+   
 
     &__searchBar button[type=submit]{
         cursor: pointer;
@@ -94,21 +105,16 @@ body{
         text-align: center;
         -webkit-appearance: none;
         -moz-appearance: none;
+        
     }
 
-    // &__searchBar input[type=submit]::after{
-    //     content: "\f058";
-    //     font-family: "Font Awesome 5 Free";
-    //     padding: 0px 4px 0px 0px;
-    // }
+    &__searchBar button[type=submit] .fas{
+        font-size: 1.6rem;
+    }
 
-    // &__searchBar input[type=submit]:before{
-    //     display: inline-block;
-    //     font-style: normal;
-    //     font-variant: normal;
-    //     text-rendering: auto;
-    //     -webkit-font-smoothing: antialiased;
-    // }
 
 }
 
+/* mainView ----------------------------------------------------------*/
+/*------------------------------------------------------------------*/
+/*------------------------------------------------------------------*/
