@@ -4,8 +4,12 @@
 $primary:rgb(0,48,255);
 $secondary: hsl(225, 57%, 67%);
 
-$primaryFont: hsl(216, 33%, 97%);
-$secondaryFont: hsl(221, 68%, 93%);
+$primaryFontColour: hsl(216, 33%, 97%);
+$secondaryFontColour: hsl(221, 68%, 93%);
+
+
+$font-primary: 'Roboto Web', 'Roboto', sans-serif;
+
 
 
 // Just for testing 
@@ -27,7 +31,7 @@ html{
 }
 
 body{
-    font-family: 'Roboto', sans-serif;
+    font-family: $font-primary;
     font-weight: 400;
     line-height: 1.7;
     box-sizing: border-box;
@@ -44,16 +48,26 @@ body{
 
 .main{
     padding: 1.2rem;
+    display: grid;
+    width: 100%;
+    grid-template-columns: 1fr;
+    grid-template-areas: 
+    "head"
+    "main"
+    "nav"
+    "sub"
+    ;
 }
 
 .header{
+    grid-area: head;
     display: grid;
     width: 100%;
     grid-template-columns: 1fr;
     grid-template-areas: 
     "logo searchBar";
     align-items: center;
-    color: $primaryFont;
+    color: $primaryFontColour;
 
     &__logo{
         grid-area: logo;
@@ -73,9 +87,9 @@ body{
     &__searchBar input{
         -webkit-appearance: none;
         background-color: $secondary;
-        color: $primaryFont;
+        color: $primaryFontColour;
         border: 0;
-        max-width: 12rem;
+        max-width: 10rem;
         text-transform: uppercase;
     }
 
@@ -93,7 +107,7 @@ body{
 
     &__searchBar button[type=submit]{
         cursor: pointer;
-        color: $primaryFont;
+        color: $primaryFontColour;
         border:none;
         background-color: none;
         display: inline-block;
@@ -121,13 +135,15 @@ body{
 /*------------------------------------------------------------------*/
 
 .mainView{
+    grid-area: main;
+    justify-self: center;
     display: grid;
-    //grid-template-columns: repeat(2, 1fr);
     grid-template-areas: 
     "heading heading" 
     "icon temp";
-    margin: 5rem 4rem;
-    color: $primaryFont;
+    color: $primaryFontColour;
+    margin: 5rem 0;
+    
 
 
     &__headingPrimary{
@@ -140,7 +156,7 @@ body{
         font-weight: 300;
         font-size: 1.4rem;
         line-height: 1.2;
-        color: $secondaryFont;
+        color: $secondaryFontColour;
     }
 
     &__headingPrimary .headingPrimary--main{
@@ -148,7 +164,7 @@ body{
         font-weight: 600;
         line-height: 1.4;
         font-size: 2.4rem;
-        color: $primaryFont;
+        color: $primaryFontColour;
     }
 
     &__headingSecondary{
@@ -157,10 +173,12 @@ body{
         font-weight: 300;
         font-size: 9.6rem;
         line-height: 1;
+        padding: 1.2rem 0 1.2rem 2.8rem;
     }
 
     &__icon{
         grid-area: icon;
+        padding: 1.2rem 0;
     }
 
 
