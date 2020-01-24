@@ -1,13 +1,27 @@
 // Import node package example
 //@import "~randomPackage";
 
+
+// Main colours
 $primary:rgb(0,48,255);
 $secondary: hsl(225, 57%, 67%);
 
+// Font colours
 $primaryFontColour: hsl(216, 33%, 97%);
 $secondaryFontColour: hsl(221, 68%, 93%);
 
+// Button colours
+$buttonActive: hsl(0,0%,100%);
+$buttonActiveFont: hsl(209,18%,30%);
+$buttonInactive: hsl(216, 33%, 97%);
+$buttonInactiveFont: hsl(210, 16%, 82%);
 
+// Shadows
+$primaryShadow: 0 0.2rem 0.2rem hsla(0, 0, 0, 25%);
+
+
+
+// Fonts
 $font-primary: 'Roboto Web', 'Roboto', sans-serif;
 
 
@@ -73,15 +87,15 @@ body{
         grid-area: logo;
         font-size: 2rem;
         text-transform: capitalize;
-        padding: 0.4rem;
+        padding: .4rem;
     }
 
     &__searchBar{
         grid-area: searchBar;
-        padding: 0.4rem;
+        padding: .4rem;
         background-color: $secondary;
-        border-radius: 0.4rem;
-        padding: 0.6rem;
+        border-radius: .4rem;
+        padding: .6rem;
     }
 
     &__searchBar input{
@@ -97,10 +111,14 @@ body{
         outline: none;
     }
 
+     // TODO:
+    // - placeholder colour not working in chrome
+
     &__searchBar input::placeholder{
         text-transform: uppercase;
         font-weight: 500;
         font-size: 1.4rem;
+        color: $secondaryFontColour;
     }
 
    
@@ -148,7 +166,7 @@ body{
 
     &__headingPrimary{
         grid-area: heading;
-        padding-bottom: 0.8rem;
+        padding-bottom: .8rem;
     }
 
     &__headingPrimary .headingPrimary--sub{
@@ -181,9 +199,68 @@ body{
         padding: 1.2rem 0;
     }
 
-
-
 }
 
 
+
+/* nav -------------------------------------------------------------*/
+/*------------------------------------------------------------------*/
+/*------------------------------------------------------------------*/
+
+.nav{
+    grid-area: nav;
+    justify-self: center;
+    display: flex;
+    width: 80%;
+
+    &__button{
+        border: none;
+        text-decoration: none;
+        border-radius: .4rem;
+        box-shadow: $primaryShadow;
+        font-size: 1.4rem;
+        margin: 0;
+        width: 100%;
+        padding: 1.2rem 0;
+        cursor: pointer;
+        //border: solid 1px #000;
+    }
+
+
+    &__button:hover{
+        border: 0;
+        outline: none;
+        //border: solid 1px #000;
+    }
+
+    &__button:focus{
+        border: 0;
+        outline: none;
+        //border: solid 1px #000;
+    }
+    &__button:visited{
+        border: 0;
+        outline: none;
+        //border: solid 1px #000;
+    }
+    
+    &__button:active{
+        border: 0;
+        outline: none;
+        //border: solid 1px #000;
+    }
+
+    // TODO:
+    // - Add button hover, focus and , visited active 
+    // - go on https://css-tricks.com/overriding-default-button-styles/ for ref
+
+
+    &__backBtn--inactive{
+        border-radius: .4rem 0 0 .4rem;
+    }
+
+    &__forwardBtn--active{
+        border-radius: 0 .4rem .4rem 0;
+    }
+}
 
