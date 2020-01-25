@@ -5,10 +5,14 @@
 // Main colours
 $primary:rgb(0,48,255);
 $secondary: hsl(225, 57%, 67%);
+$forecastPrimary:hsl(0,0%,100%);
 
 // Font colours
 $primaryFontColour: hsl(216, 33%, 97%);
 $secondaryFontColour: hsl(221, 68%, 93%);
+$forecastFontPrimary: hsl(209, 18%, 30%);
+$forecastFontSecondery: hsl(211, 13%, 65%);
+
 
 // Button colours
 $buttonActive: hsl(0,0%,100%);
@@ -18,8 +22,6 @@ $buttonInactiveFont: hsl(210, 16%, 82%);
 $buttonClicked: hsl(221, 68%, 93%);
 
 // Shadows
-//$primaryShadow: 0 0.2rem 0.2rem hsla(0, 0, 0, 0.3);
-
 $primaryShadow: 0 0.2rem 0.2rem hsla(0, 0, 0, 0.3);
 $primaryShadowActive: 0 0.1rem 0.1rem hsla(0, 0, 0, 0.3);
 
@@ -215,6 +217,7 @@ body{
     justify-self: center;
     display: flex;
     width: 80%;
+    z-index: 100;
 
     &__button{
         border: none;
@@ -284,5 +287,47 @@ body{
         margin-left: auto;
     }
 
+}
+
+/* hourlyForecast section ------------------------------------------*/
+/*------------------------------------------------------------------*/
+/*------------------------------------------------------------------*/
+
+.hourlyForecast{
+    grid-area: sub;
+    width: 100%;
+    background-color: $forecastPrimary;
+    display: grid;
+    grid-template-columns: 1fr;
+}
+
+.forecast{
+    display: grid;
+    justify-self: center;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-areas: 
+    "icon title"
+    "icon info";
+
+    &__title{
+        grid-area: title;
+    }
+
+    &__info{
+        grid-area: info;
+    }
+
+    &__info ul li{
+        display: inline;
+    }
+
+    &__icon{
+        grid-area: icon;
+    }
+
+    &__icon img{
+        height: auto;
+        width: 4.8rem;
+    }
 }
 
