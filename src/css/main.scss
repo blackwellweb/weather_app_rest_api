@@ -15,10 +15,13 @@ $buttonActive: hsl(0,0%,100%);
 $buttonActiveFont: hsl(209,18%,30%);
 $buttonInactive: hsl(216, 33%, 97%);
 $buttonInactiveFont: hsl(210, 16%, 82%);
+$buttonClicked: hsl(221, 68%, 93%);
 
 // Shadows
-$primaryShadow: 0 0.2rem 0.2rem hsla(0, 0, 0, 25%);
+//$primaryShadow: 0 0.2rem 0.2rem hsla(0, 0, 0, 0.3);
 
+$primaryShadow: 0 0.2rem 0.2rem hsla(0, 0, 0, 0.3);
+$primaryShadowActive: 0 0.1rem 0.1rem hsla(0, 0, 0, 0.3);
 
 
 // Fonts
@@ -216,51 +219,70 @@ body{
     &__button{
         border: none;
         text-decoration: none;
-        border-radius: .4rem;
         box-shadow: $primaryShadow;
         font-size: 1.4rem;
         margin: 0;
         width: 100%;
         padding: 1.2rem 0;
         cursor: pointer;
-        //border: solid 1px #000;
+        display: flex;
+        align-items: center;
     }
 
 
-    &__button:hover{
+    &__button:hover, &__button:focus, &__button:visited, &__button:active{
         border: 0;
         outline: none;
-        //border: solid 1px #000;
-    }
-
-    &__button:focus{
-        border: 0;
-        outline: none;
-        //border: solid 1px #000;
-    }
-    &__button:visited{
-        border: 0;
-        outline: none;
-        //border: solid 1px #000;
     }
     
     &__button:active{
-        border: 0;
-        outline: none;
-        //border: solid 1px #000;
+        transform: translateY(.08rem);
+        transition-duration: .01s;
+        box-shadow: $primaryShadowActive;
+        background-color: $buttonClicked;
+
     }
 
-    // TODO:
-    // - Add button hover, focus and , visited active 
-    // - go on https://css-tricks.com/overriding-default-button-styles/ for ref
+    &__button .fas{
+        margin:0 2.4rem
+    }
 
+    &__button span{
+        margin:0 2.4rem;
+    }
+
+
+    &__backBtn--active{
+        border-radius: .4rem 0 0 .4rem;
+        background-color: $buttonActive;
+        color: $buttonActiveFont;
+    }
 
     &__backBtn--inactive{
         border-radius: .4rem 0 0 .4rem;
+        background-color: $buttonInactive;
+        color: $buttonInactiveFont;
+    }
+
+    &__backBtn--active .fas, &__backBtn--inactive .fas{
+        margin-right: auto;
     }
 
     &__forwardBtn--active{
         border-radius: 0 .4rem .4rem 0;
+        background-color: $buttonActive;
+        color: $buttonActiveFont;
     }
+
+    &__forwardBtn--inactive{
+        border-radius: 0 .4rem .4rem 0;
+        background-color: $buttonInactive;
+        color: $buttonInactiveFont;
+    }
+    
+    &__forwardBtn--active .fas, &__forwardBtn--inactive .fas{
+        margin-left: auto;
+    }
+
 }
 
