@@ -11,7 +11,8 @@ $forecastPrimary:hsl(0,0%,100%);
 $primaryFontColour: hsl(216, 33%, 97%);
 $secondaryFontColour: hsl(221, 68%, 93%);
 $forecastFontPrimary: hsl(209, 18%, 30%);
-$forecastFontSecondery: hsl(211, 13%, 65%);
+$forecastFontSecondery: hsl(211, 12%, 43%);
+$forecastFontTertiary: hsl(211, 13%, 65%);
 
 
 // Button colours
@@ -66,7 +67,6 @@ body{
 
 
 .main{
-    padding: 1.2rem;
     display: grid;
     width: 100%;
     grid-template-columns: 1fr;
@@ -79,6 +79,7 @@ body{
 }
 
 .header{
+    padding: 1.2rem;
     grid-area: head;
     display: grid;
     width: 100%;
@@ -299,30 +300,55 @@ body{
     background-color: $forecastPrimary;
     display: grid;
     grid-template-columns: 1fr;
+    padding-top: 3.2rem;
+
 }
 
 .forecast{
     display: grid;
     justify-self: center;
-    grid-template-columns: repeat(2, 1fr);
+    //grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: 6rem 1fr 1fr;
     grid-template-areas: 
-    "icon title"
-    "icon info";
+    "icon title title"
+    "icon info info";
+    padding:  1.2rem;
+    line-height: 1.5;
 
     &__title{
         grid-area: title;
     }
+    &__title .forecast__title--sub{
+        display: block;
+        color: $forecastFontSecondery;
+        font-size: 1.2rem;
+    }
+    &__title .forecast__title--main{
+        display: block;
+        color: $forecastFontPrimary;
+        font-size: 1.4rem; 
+        font-weight: 600; 
+    }
 
     &__info{
         grid-area: info;
+        color: $forecastFontTertiary;
     }
 
     &__info ul li{
         display: inline;
+        font-size: 1.2rem;
+        font-weight: 300;
+        padding-right: .8rem;
+    }
+
+    &__info li span{
+       font-weight: 300;
     }
 
     &__icon{
         grid-area: icon;
+        align-self: center;
     }
 
     &__icon img{
@@ -331,3 +357,11 @@ body{
     }
 }
 
+/* Overlay ---------------------------------------------------------*/
+/*------------------------------------------------------------------*/
+/*------------------------------------------------------------------*/
+.overlay{
+    height: 100%;
+    width: 100%;
+    background-color: #000;
+}
