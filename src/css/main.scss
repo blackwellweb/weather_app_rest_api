@@ -32,12 +32,18 @@ $primaryShadowActive: 0 0.1rem 0.1rem hsla(0, 0, 0, 0.3);
 $font-primary: 'Roboto Web', 'Roboto', sans-serif;
 
 
+// Media Queries
+//$desktop: 84rem;
+$desktop: 40rem;
 
-// Just for testing 
-img{
-    height: auto;
-    width: 10.8rem;
+@mixin desktop {
+    @media (min-width: #{$desktop}){
+        @content;
+    }
 }
+
+
+
 
 *,
 *::after,
@@ -56,9 +62,6 @@ body{
     font-weight: 400;
     line-height: 1.7;
     box-sizing: border-box;
-
-    // just for testing
-    background-color: hsl(227, 42%, 51%);
 }
 
 
@@ -77,6 +80,14 @@ body{
     "nav"
     "sub"
     ;
+
+
+    @include desktop{
+        max-width: 44rem;
+    }
+    
+
+
 }
 
 .header{
@@ -118,8 +129,6 @@ body{
         outline: none;
     }
 
-     // TODO:
-    // - placeholder colour not working in chrome
 
     &__searchBar input::placeholder{
         text-transform: uppercase;
@@ -168,7 +177,7 @@ body{
     "icon temp";
     color: $primaryFontColour;
     margin: 4.8rem 0;
-    
+
 
 
     &__headingPrimary{
@@ -204,6 +213,11 @@ body{
     &__icon{
         grid-area: icon;
         padding: 1.2rem 0;
+    }
+
+    &__icon img{
+    height: auto;
+    width: 10.8rem;
     }
 
 }
@@ -367,7 +381,8 @@ body{
 /*------------------------------------------------------------------*/
 
 .background{
-    position: absolute;
+    grid-column: 1;
+    grid-row: 1/5;
     height: 100%;
     width: 100%;
     background: url(../assets/images/background.jpg) no-repeat center center fixed;
@@ -377,7 +392,6 @@ body{
     z-index: -1;
 
     &__overlay{
-        position: absolute;
         height: 100%;
         width: 100%;
         background-color: $backgroundOverlay;
