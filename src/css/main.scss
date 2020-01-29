@@ -66,6 +66,7 @@ body{
     font-weight: 400;
     line-height: 1.7;
     box-sizing: border-box;
+    overflow-x: hidden;;
 }
 
 
@@ -89,12 +90,13 @@ body{
     @include desktop{
         grid-row: 1;
         grid-column: 1;
-        //align-self: center;
         justify-self: center;
         max-width: 44rem;
-        max-height: 72.6rem;
-        //overflow-y: scroll;
-        margin-top: 3rem;
+        max-height: 94.6rem;
+        margin-top: 7.8rem;
+        overflow: scroll;
+        overflow-x: hidden;
+        padding-left: .8rem;
     }
     
 
@@ -111,6 +113,11 @@ body{
     "logo searchBar";
     align-items: center;
     color: $primaryFontColour;
+
+    @include desktop{
+        //margin-top: 2.4rem;
+        margin-top: 3.3rem;
+    }
 
     &__logo{
         grid-area: logo;
@@ -134,6 +141,10 @@ body{
         border: 0;
         max-width: 10rem;
         text-transform: uppercase;
+
+        @include desktop{
+            max-width: 8rem;
+        }
     }
 
     &__searchBar input:focus{
@@ -417,11 +428,16 @@ body{
 
 
 .phoneOverlay{
-   position: fixed;
-   position: fixed;
-   left: 50%;
-   transform: translate(-50%, 0);
-   pointer-events: none; // this allows you to Click through div to underlying elements
+    display: none;
+
+    @include desktop{
+        display: block;
+        position: fixed;
+        left: 50%;
+        transform: translate(-50%, 0);
+        pointer-events: none; // this allows you to Click through div to underlying elements
+        margin-top: 4.8rem;
+    }
 
     &__img{
         height: auto;
