@@ -15,6 +15,9 @@ import axios from 'axios';
  * @module Search
  */
 
+/**
+  * Class to create a new search object
+  */
 export default class Search {
   constructor(query) {
     this.query = query;
@@ -23,9 +26,10 @@ export default class Search {
 
   async getResults() {
     try {
-      const res = await axios(`https://forkify-api.herokuapp.com/api/search?&q=${this.query}`);
-      this.result = res.data.recipes;
-      // console.log(this.result);
+      const proxy = 'https://cors-anywhere.herokuapp.com/';
+      const res = await axios(`${proxy}https://api.darksky.net/forecast/${this.query}`);
+      // this.result = res.data.recipes;
+      console.log(res);
     } catch (err) {
       console.log(err);
     }

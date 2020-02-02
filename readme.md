@@ -1,1 +1,1 @@
-This is just a sample script on how to use JSDoc
+This is the documentation for this project. 

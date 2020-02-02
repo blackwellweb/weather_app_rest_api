@@ -1,9 +1,17 @@
 
+/**
+ * @file index.js is the root file for thisWeather app REST API
+ * @author Paul Blackwell
+ * @see <a href="https://paulblackwell.dev">Paul Blackwell</a>
+ */
+
+
 /* Imports ---------------------------------------------------------*/
 /*------------------------------------------------------------------*/
 /*------------------------------------------------------------------*/
 import '../css/main.scss';
-
+import Search from './models/Search';
+import { key } from './key';
 
 /* Global state of the app ----------------------------------------------------------------*/
 /*-----------------------------------------------------------------------------------------*/
@@ -13,9 +21,36 @@ import '../css/main.scss';
 // - Forecast for the day object
 
 
-// const state = {};
+const state = {};
 
 
 /* Search Controller------------------------------------------------*/
 /*------------------------------------------------------------------*/
 /*------------------------------------------------------------------*/
+
+const controlSearch = async () => {
+  let long;
+  let lat;
+
+  // Check if user geolocation is on
+  if (navigator.geolocation) {
+    // Get long and latitude
+    navigator.geolocation.getCurrentPosition((position) => {
+      long = position.coords.longitude;
+      lat = position.coords.latitude;
+
+      // New search object and add state
+      state.search = new Search(`${key}/${long},${lat}`);
+
+      try {
+        //  Search for weather
+        state.search.getResults();
+      } catch (err) {
+        console.log(err);
+      }
+    });
+  }
+};
+
+
+controlSearch();

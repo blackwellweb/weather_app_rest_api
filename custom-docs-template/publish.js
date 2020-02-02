@@ -355,7 +355,7 @@ function linktoExternal(longName, name) {
  */
 function buildNav(members) {
     let globalNav;
-    let nav = '<h2><a href="index.html">JsDoc Example</a></h2>';
+    let nav = '<h2><a href="index.html">Weather app REST API</a></h2>';
     const seen = {};
     const seenTutorials = {};
 
@@ -613,7 +613,7 @@ exports.publish = (taffyData, opts, tutorials) => {
     files = find({ kind: 'file' });
     packages = find({ kind: 'package' });
 
-    generate('JSDoc Example',
+    generate('Weather app REST API',
         packages.concat(
             [{
                 kind: 'mainpage',
