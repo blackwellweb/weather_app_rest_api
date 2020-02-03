@@ -28,8 +28,9 @@ export default class Search {
     try {
       const proxy = 'https://cors-anywhere.herokuapp.com/';
       const res = await axios(`${proxy}https://api.darksky.net/forecast/${this.query}`);
-      // this.result = res.data.recipes;
-      console.log(res);
+
+      this.result = res.data;
+      console.log(this.result);
     } catch (err) {
       console.log(err);
     }

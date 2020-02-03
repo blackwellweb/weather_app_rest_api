@@ -23,34 +23,48 @@ import { key } from './key';
 
 const state = {};
 
-
 /* Search Controller------------------------------------------------*/
 /*------------------------------------------------------------------*/
 /*------------------------------------------------------------------*/
 
 const controlSearch = async () => {
-  let long;
-  let lat;
-
   // Check if user geolocation is on
   if (navigator.geolocation) {
     // Get long and latitude
-    navigator.geolocation.getCurrentPosition((position) => {
-      long = position.coords.longitude;
-      lat = position.coords.latitude;
 
-      // New search object and add state
-      state.search = new Search(`${key}/${long},${lat}`);
+    let long;
+    let lat;
 
-      try {
-        //  Search for weather
-        state.search.getResults();
-      } catch (err) {
-        console.log(err);
-      }
-    });
+    const getPosition = (e) => {
+      navigator.geolocation.getCurrentPosition((position) => {
+        e = position.coords.longitude;
+        // e = position.coords.latitude;
+        return e;
+      });
+    };
+
+    console.log(getPosition(long));
+
+    // navigator.geolocation.getCurrentPosition((position) => {
+    //   long = position.coords.longitude;
+    //   lat = position.coords.latitude;
+    // });
+
+    // New search object and add state
+    state.search = new Search(`${key}/${long},${lat}`);
+
+
+    try {
+      //  Search for weather
+      await state.search.getResults();
+
+      // Render Main View
+    } catch (err) {
+      console.log(err);
+    }
   }
 };
 
-
+// const {currenty} = state.search;
+console.log(state.search);
 controlSearch();
