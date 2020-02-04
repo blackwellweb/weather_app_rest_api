@@ -31,19 +31,22 @@ const controlSearch = async () => {
   // Check if user geolocation is on
   if (navigator.geolocation) {
     // Get long and latitude
-
     let long;
     let lat;
 
-    const getPosition = (e) => {
+    const getGeolocation = () => {
+      const coordinates = {};
       navigator.geolocation.getCurrentPosition((position) => {
-        e = position.coords.longitude;
-        // e = position.coords.latitude;
-        return e;
+        coordinates.long = position.coords.longitude;
+        coordinates.lat = position.coords.latitude;
       });
+
+      return coordinates;
     };
 
-    console.log(getPosition(long));
+
+    console.log(getGeolocation());
+
 
     // navigator.geolocation.getCurrentPosition((position) => {
     //   long = position.coords.longitude;
@@ -66,5 +69,5 @@ const controlSearch = async () => {
 };
 
 // const {currenty} = state.search;
-console.log(state.search);
+// console.log(state.search);
 controlSearch();
