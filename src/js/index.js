@@ -34,40 +34,23 @@ const controlSearch = async () => {
     let long;
     let lat;
 
-    const getGeolocation = () => {
-      const coordinates = {};
-      navigator.geolocation.getCurrentPosition((position) => {
-        coordinates.long = position.coords.longitude;
-        coordinates.lat = position.coords.latitude;
-      });
+    navigator.geolocation.getCurrentPosition((position) => {
+      long = position.coords.longitude;
+      lat = position.coords.latitude;
 
-      return coordinates;
-    };
+      // New search object and add state
+      state.search = new Search(`${key}/${long},${lat}`);
 
+      try {
+        //  Search for weather
+        state.search.getResults();
 
-    console.log(getGeolocation());
-
-
-    // navigator.geolocation.getCurrentPosition((position) => {
-    //   long = position.coords.longitude;
-    //   lat = position.coords.latitude;
-    // });
-
-    // New search object and add state
-    state.search = new Search(`${key}/${long},${lat}`);
-
-
-    try {
-      //  Search for weather
-      await state.search.getResults();
-
-      // Render Main View
-    } catch (err) {
-      console.log(err);
-    }
+        // Render Main View
+      } catch (err) {
+        console.log(err);
+      }
+    });
   }
 };
 
-// const {currenty} = state.search;
-// console.log(state.search);
 controlSearch();
