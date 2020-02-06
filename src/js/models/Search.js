@@ -27,7 +27,7 @@ export default class Search {
   async getResults() {
     try {
       const proxy = 'https://cors-anywhere.herokuapp.com/';
-      const res = await axios(`${proxy}https://api.darksky.net/forecast/${this.query}`);
+      const res = await axios(`${proxy}https://api.darksky.net/forecast/${this.query}?units=si`);
 
       this.result = res.data;
       console.log(this.result);

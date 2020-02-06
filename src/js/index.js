@@ -12,6 +12,8 @@
 import '../css/main.scss';
 import Search from './models/Search';
 import { key } from './key';
+// import elements from './views/base';
+import renderMainView from './views/mainView';
 
 /* Global state of the app ----------------------------------------------------------------*/
 /*-----------------------------------------------------------------------------------------*/
@@ -30,26 +32,32 @@ const state = {};
 const controlSearch = async () => {
   // Check if user geolocation is on
   if (navigator.geolocation) {
-    // Get long and latitude
-    let long;
-    let lat;
+    // Get long and latitude hard code for now
+    let long = 13.0562456;
+    let lat = 55.6108462;
 
+    // TODO : this is not working
     navigator.geolocation.getCurrentPosition((position) => {
       long = position.coords.longitude;
       lat = position.coords.latitude;
-
-      // New search object and add state
-      state.search = new Search(`${key}/${long},${lat}`);
-
-      try {
-        //  Search for weather
-        state.search.getResults();
-
-        // Render Main View
-      } catch (err) {
-        console.log(err);
-      }
     });
+
+    // New search object and add state
+    state.search = new Search(`${key}/${long},${lat}`);
+
+    try {
+      //  Search for weather
+      await state.search.getResults();
+
+      const { currently } = state.search.result;
+      console.log(await currently);
+
+      renderMainView(currently);
+
+      // Render Main View
+    } catch (err) {
+      console.log(err);
+    }
   }
 };
 
