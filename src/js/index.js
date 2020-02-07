@@ -15,6 +15,11 @@ import { key } from './key';
 // import elements from './views/base';
 import renderMainView from './views/mainView';
 
+
+// @ts-ignore
+// import img from '../assets/svgs/clouds.svg';
+
+
 /* Global state of the app ----------------------------------------------------------------*/
 /*-----------------------------------------------------------------------------------------*/
 /*-----------------------------------------------------------------------------------------*/
@@ -24,6 +29,7 @@ import renderMainView from './views/mainView';
 
 
 const state = {};
+
 
 /* Search Controller------------------------------------------------*/
 /*------------------------------------------------------------------*/

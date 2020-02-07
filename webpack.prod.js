@@ -30,7 +30,7 @@ module.exports = merge(common, {
   },
   plugins: [
     new MiniCssExtractPlugin({ filename: '[name].[contentHash].css' }),
-    new CleanWebpackPlugin(),
+    // new CleanWebpackPlugin(),
   ],
   module: {
     rules: [

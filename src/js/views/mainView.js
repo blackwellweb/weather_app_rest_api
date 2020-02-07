@@ -10,7 +10,7 @@ const renderMainView = (item) => {
   </h1>
   <h2 class="mainView__headingSecondary">${Math.round(item.temperature)}°</h2>
   <div class="mainView__icon">
-    <img class="mainView__icon--large" src=".//assets/svgs/clouds.svg" alt="Weather Icon Cloudy">
+    <div class="icon--large">&nbsp;</div>
   </div>
     `;
   elements.mainView.insertAdjacentHTML('afterbegin', markup);
