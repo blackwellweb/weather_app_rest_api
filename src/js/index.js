@@ -31,6 +31,45 @@ import renderMainView from './views/mainView';
 const state = {};
 
 
+/* Import All Images------------------------------------------------*/
+/*------------------------------------------------------------------*/
+/*------------------------------------------------------------------*/
+
+
+function importAll(r) {
+  return r.keys().map(r);
+}
+
+/**
+ * require.context One of the main features of webpack's compiler is to recursively
+ * parse all the modules, we are using hear to import all images as webpack
+ * will hash all our images to prevent the browser from caching them.
+ * However this means that we have to use a few work arounds to dynamically
+ * load images in using js, as we will only know the first part of the image
+ * not the hash.
+ */
+// @ts-ignore
+const images = importAll(require.context('../assets/svgs', false, /\.(png|jpe?g|svg)$/));
+
+
+// Get image function allows use to get the correct hashed image
+const getImage = (input) => {
+  let imageNeeded;
+
+  images.forEach((image) => {
+    // Each image will give something like this 'imgs/clouds.813f42514695c0e64c51ad813d2ab2b0.svg'
+    // If the image sting includes the input with in set imageNeeded to that image
+    // For example if input = 'clouds',
+    // imageNeeded = imgs/clouds.813f42514695c0e64c51ad813d2ab2b0.svg'
+
+    if (image.includes(input)) {
+      imageNeeded = image;
+    }
+  });
+  return imageNeeded;
+};
+
+
 /* Search Controller------------------------------------------------*/
 /*------------------------------------------------------------------*/
 /*------------------------------------------------------------------*/
@@ -58,9 +97,8 @@ const controlSearch = async () => {
       const { currently } = state.search.result;
       console.log(await currently);
 
-      renderMainView(currently);
-
-      // Render Main View
+      // Render Main view
+      renderMainView(currently, getImage(currently.icon));
     } catch (err) {
       console.log(err);
     }
