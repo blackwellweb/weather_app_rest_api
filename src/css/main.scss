@@ -70,7 +70,8 @@ body{
 }
 
 
-/* Header ----------------------------------------------------------*/
+
+/* Main / Header / loader-------------------------------------------*/
 /*------------------------------------------------------------------*/
 /*------------------------------------------------------------------*/
 
@@ -102,6 +103,23 @@ body{
 
 
 }
+
+.loader{
+    display: grid;
+    grid-row: 1/4;
+    grid-column: 1/2;
+    background-color: $backgroundOverlay;
+    z-index: 2;
+    justify-content: center;
+    align-content: center;
+
+    &__icon{
+        width: 6rem;
+        height: auto;
+    }
+}
+
+    
 
 .header{
     padding: 1.2rem;
@@ -261,7 +279,7 @@ body{
     display: flex;
     width: 80%;
     height: 4.4rem;
-    z-index: 100;
+    z-index: 1;
 
     &__button{
         border: none;
@@ -441,6 +459,7 @@ body{
         transform: translate(-50%, 0);
         pointer-events: none; // this allows you to Click through div to underlying elements
         margin-top: 4.8rem;
+        z-index: 3;
     }
 
     &__img{
