@@ -7,6 +7,7 @@ $primary:hsl(227,42%,51%);
 $secondary: hsl(225, 57%, 67%);
 $forecastPrimary:hsl(0,0%,100%);
 $backgroundOverlay: hsla(227,42%,51%, 80%);
+$iconBackground: hsl(221,68%,93%);
 
 // Font colours
 $primaryFontColour: hsl(216, 33%, 97%);
@@ -111,15 +112,67 @@ body{
     background-color: $backgroundOverlay;
     z-index: 2;
     justify-content: center;
-    align-content: center;
+    //align-content: center;
 
     &__icon{
         width: 6rem;
         height: auto;
+        display: flex;
+        margin-top: 20rem;
     }
+
+   
+
+    .icon__left, .icon__middle, .icon__right{
+        width: 1.2rem;
+        height: 1.2rem;
+        margin: 2rem .3rem;
+        background-color: $iconBackground;
+        border-radius: 50%;
+        animation: 0.9s bounce infinite alternate;
+    }
+
+    .icon__middle{
+        animation-delay: 0.3s;
+    }
+
+    .icon__right{
+        animation-delay: 0.6s;
+    }
+
+    @keyframes bounce{
+        0%{
+            opacity: 1; 
+            transform: translateY(.8rem);
+        }
+
+
+        100%{
+            opacity: .25; 
+            transform: translateY(0);
+        }
+    }
+
 }
 
-    
+.loader--active{
+    animation: 0.5s showLoader;
+    animation-fill-mode: forwards;       
+}
+
+@keyframes showLoader {
+    from {
+      opacity: 0;
+    }
+  
+    to {
+      opacity: 1;
+    }
+  }
+
+  .loader--inactive{
+      display: none;
+  }
 
 .header{
     padding: 1.2rem;
