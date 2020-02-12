@@ -14,10 +14,8 @@ import Search from './models/Search';
 import { key } from './key';
 // import elements from './views/base';
 import renderMainView from './views/mainView';
-
-
-// @ts-ignore
-// import img from '../assets/svgs/clouds.svg';
+import { showLoader, hideLoader } from './models/loader';
+import elements from './views/base';
 
 
 /* Global state of the app ----------------------------------------------------------------*/
@@ -81,6 +79,9 @@ const controlSearch = async () => {
     let long = 13.0562456;
     let lat = 55.6108462;
 
+    // Show loader
+    showLoader(elements.loaderIcon);
+
     // TODO : this is not working
     navigator.geolocation.getCurrentPosition((position) => {
       long = position.coords.longitude;
@@ -99,6 +100,9 @@ const controlSearch = async () => {
 
       // Render Main view
       renderMainView(currently, getImage(currently.icon));
+
+      // Hide loader
+      hideLoader(elements.loaderIcon);
     } catch (err) {
       console.log(err);
     }

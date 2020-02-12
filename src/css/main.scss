@@ -156,8 +156,8 @@ body{
 }
 
 .loader--active{
-    animation: 0.5s showLoader;
-    animation-fill-mode: forwards;       
+    animation: 0.1s showLoader;
+    animation-fill-mode: forwards;    
 }
 
 @keyframes showLoader {
@@ -170,9 +170,11 @@ body{
     }
   }
 
-  .loader--inactive{
-      display: none;
-  }
+.loader--inactive{
+    display: none;
+}
+
+
 
 .header{
     padding: 1.2rem;
