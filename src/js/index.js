@@ -16,6 +16,7 @@ import { key } from './key';
 import renderMainView from './views/mainView';
 import { showLoader, hideLoader } from './models/loader';
 import elements from './views/base';
+import renderHour from './views/hourlyForecast';
 
 
 /* Global state of the app ----------------------------------------------------------------*/
@@ -68,6 +69,19 @@ const getImage = (input) => {
 };
 
 
+/* HourlyForecast Controller ---------------------------------------*/
+/*------------------------------------------------------------------*/
+/*------------------------------------------------------------------*/
+
+
+const controlHourlyForecast = (hour) => {
+  // console.log(hour);
+  hour.forEach((item) => {
+    renderHour(item, getImage(item.icon));
+  });
+};
+
+
 /* Search Controller------------------------------------------------*/
 /*------------------------------------------------------------------*/
 /*------------------------------------------------------------------*/
@@ -95,11 +109,15 @@ const controlSearch = async () => {
       //  Search for weather
       await state.search.getResults();
 
-      const { currently } = state.search.result;
-      console.log(await currently);
+      const { currently, hourly } = state.search.result;
+      // console.log(await currently);
 
       // Render Main view
       renderMainView(currently, getImage(currently.icon));
+
+      // render Hourly Forecast
+      controlHourlyForecast(hourly.data);
+      console.log(hourly);
 
       // Hide loader
       hideLoader(elements.loaderIcon);

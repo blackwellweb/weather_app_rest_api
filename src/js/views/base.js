@@ -1,5 +1,6 @@
 const elements = {
   mainView: document.querySelector('.mainView'),
+  hourlyForecast: document.querySelector('.hourlyForecast'),
   loaderIcon: document.querySelector('.loader'),
 };
 
