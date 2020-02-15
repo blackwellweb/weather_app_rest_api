@@ -18,7 +18,8 @@ import renderMainView from './views/mainView';
 import { showLoader, hideLoader } from './models/loader';
 import elements from './views/base';
 import renderHour from './views/hourlyForecast';
-import updateNav from './views/updateNav';
+import renderDay from './views/sevenDayForecast';
+import { updateNav, removeContent } from './views/updateNav';
 
 
 /* Global state of the app ----------------------------------------------------------------*/
@@ -77,9 +78,23 @@ const getImage = (input) => {
 
 
 const controlHourlyForecast = (hour) => {
-  // console.log(hour);
+  // Reverse the order of the data so it renders in the correct order
+  hour.reverse();
   hour.forEach((item) => {
     renderHour(item, getImage(item.icon));
+  });
+};
+
+/* HourlyForecast Controller ---------------------------------------*/
+/*------------------------------------------------------------------*/
+/*------------------------------------------------------------------*/
+
+
+const controlSevenDayForecast = (day) => {
+  // Reverse the order of the data so it renders in the correct order
+  day.reverse();
+  day.forEach((item) => {
+    renderDay(item, getImage(item.icon));
   });
 };
 
@@ -111,7 +126,7 @@ const controlSearch = async () => {
       //  Search for weather
       await state.search.getResults();
 
-      const { currently, hourly } = state.search.result;
+      const { currently, hourly, daily } = state.search.result;
       // console.log(await currently);
 
       // Render Main view
@@ -131,9 +146,17 @@ const controlSearch = async () => {
           // Update button state
           updateNav(elements.navForwardButton);
 
+          // Show loader
+          showLoader(elements.loaderIcon);
+
           // remove old content
+          removeContent(elements.hourlyForecast);
 
           // load new content
+          controlSevenDayForecast(daily.data);
+
+          // Hide loader
+          hideLoader(elements.loaderIcon);
         }
       });
 
@@ -144,9 +167,14 @@ const controlSearch = async () => {
           // Update button state
           updateNav(elements.navBackButton);
 
+          // Show loader
+          showLoader(elements.loaderIcon);
+
           // remove old content
+          removeContent(elements.hourlyForecast);
 
           // load new content
+          controlHourlyForecast(hourly.data);
         }
       });
     } catch (err) {

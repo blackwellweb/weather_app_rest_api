@@ -107,7 +107,7 @@ body{
 
 .loader{
     display: grid;
-    grid-row: 1/4;
+    grid-row: 1/5;
     grid-column: 1/2;
     background-color: $backgroundOverlay;
     z-index: 2;
@@ -368,7 +368,7 @@ body{
     }
 
     &__button span{
-        margin:0 2.4rem;
+        margin:0 1.6rem;
     }
 
     &__backBtn {

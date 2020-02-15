@@ -24,4 +24,12 @@ const updateNav = (element) => {
   }
 };
 
-export { updateNav as default };
+
+// Remove Content
+const removeContent = (target) => {
+  // eslint-disable-next-line no-param-reassign
+  target.innerHTML = '';
+};
+
+
+export { updateNav, removeContent };
