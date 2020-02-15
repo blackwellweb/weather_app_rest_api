@@ -10,6 +10,7 @@
 /*------------------------------------------------------------------*/
 /*------------------------------------------------------------------*/
 import '../css/main.scss';
+// import { loader } from 'mini-css-extract-plugin';
 import Search from './models/Search';
 import { key } from './key';
 // import elements from './views/base';
@@ -17,6 +18,7 @@ import renderMainView from './views/mainView';
 import { showLoader, hideLoader } from './models/loader';
 import elements from './views/base';
 import renderHour from './views/hourlyForecast';
+import updateNav from './views/updateNav';
 
 
 /* Global state of the app ----------------------------------------------------------------*/
@@ -121,6 +123,32 @@ const controlSearch = async () => {
 
       // Hide loader
       hideLoader(elements.loaderIcon);
+
+      // Add EventListeners to nav ForwardButton
+      elements.navForwardButton.addEventListener('click', () => {
+        // Only run if the button can be clicked
+        if (elements.navForwardButton.classList.contains('nav--active')) {
+          // Update button state
+          updateNav(elements.navForwardButton);
+
+          // remove old content
+
+          // load new content
+        }
+      });
+
+      // Add EventListeners to nav BackButton
+      elements.navBackButton.addEventListener('click', () => {
+        // Only run if the button can be clicked
+        if (elements.navBackButton.classList.contains('nav--active')) {
+          // Update button state
+          updateNav(elements.navBackButton);
+
+          // remove old content
+
+          // load new content
+        }
+      });
     } catch (err) {
       console.log(err);
     }

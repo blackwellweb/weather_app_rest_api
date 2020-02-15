@@ -371,39 +371,32 @@ body{
         margin:0 2.4rem;
     }
 
-
-    &__backBtn--active{
+    &__backBtn {
         border-radius: .4rem 0 0 .4rem;
-        background-color: $buttonActive;
-        color: $buttonActiveFont;
     }
 
-    &__backBtn--inactive{
-        border-radius: .4rem 0 0 .4rem;
-        background-color: $buttonInactive;
-        color: $buttonInactiveFont;
-    }
-
-    &__backBtn--active .fas, &__backBtn--inactive .fas{
+    &__backBtn .fas{
         margin-right: auto;
     }
 
-    &__forwardBtn--active{
+    &__forwardBtn{
         border-radius: 0 .4rem .4rem 0;
-        background-color: $buttonActive;
-        color: $buttonActiveFont;
     }
 
-    &__forwardBtn--inactive{
-        border-radius: 0 .4rem .4rem 0;
-        background-color: $buttonInactive;
-        color: $buttonInactiveFont;
-    }
-    
-    &__forwardBtn--active .fas, &__forwardBtn--inactive .fas{
+    &__forwardBtn .fas{
         margin-left: auto;
     }
 
+}
+
+.nav--inactive{
+    background-color: $buttonInactive;
+    color: $buttonInactiveFont;
+}
+
+.nav--active{
+    background-color: $buttonActive;
+    color: $buttonActiveFont;
 }
 
 /* hourlyForecast section ------------------------------------------*/
