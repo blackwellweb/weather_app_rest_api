@@ -134,7 +134,6 @@ const controlSearch = async () => {
 
       // render Hourly Forecast
       controlHourlyForecast(hourly.data);
-      console.log(hourly);
 
       // Hide loader
       hideLoader(elements.loaderIcon);
@@ -175,6 +174,9 @@ const controlSearch = async () => {
 
           // load new content
           controlHourlyForecast(hourly.data);
+
+          // Hide loader
+          hideLoader(elements.loaderIcon);
         }
       });
     } catch (err) {
