@@ -204,6 +204,18 @@ const controlSearch = async (coordinates) => {
 };
 
 
+/* Show Loader -----------------------------------------------------*/
+/*------------------------------------------------------------------*/
+/*------------------------------------------------------------------*/
+
+// If the user hasn't clicked or allowed the page to get their Geolocation
+showLoader(elements.loaderIcon);
+
+
+/* Fire getGeolocation  --------------------------------------------*/
+/*------------------------------------------------------------------*/
+/*------------------------------------------------------------------*/
+
 getGeolocation.then((getCoordinates) => {
   // Pass the resolve from getGeolocation, this will be the latitude and longitude as an object
   controlSearch(getCoordinates);
