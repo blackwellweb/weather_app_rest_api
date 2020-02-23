@@ -115,13 +115,13 @@ const getGeolocation = new Promise((resolve, reject) => {
       latitude = position.coords.latitude;
       longitude = position.coords.longitude;
 
-      const coordinates = { latitude, longitude };
-      resolve(coordinates);
+      resolve({ latitude, longitude });
     });
   } else {
     reject();
   }
 });
+
 
 /* Search Controller------------------------------------------------*/
 /*------------------------------------------------------------------*/
