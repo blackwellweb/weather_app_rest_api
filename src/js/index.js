@@ -99,25 +99,43 @@ const controlSevenDayForecast = (day) => {
 };
 
 
+/* Get Geolocation -------------------------------------------------*/
+/*------------------------------------------------------------------*/
+/*------------------------------------------------------------------*/
+
+// Declare global variables latitude and longitude
+let latitude;
+let longitude;
+
+
+// Get Geolocation
+const getGeolocation = new Promise((resolve, reject) => {
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition((position) => {
+      latitude = position.coords.latitude;
+      longitude = position.coords.longitude;
+
+      const coordinates = { latitude, longitude };
+      resolve(coordinates);
+    });
+  } else {
+    reject();
+  }
+});
+
 /* Search Controller------------------------------------------------*/
 /*------------------------------------------------------------------*/
 /*------------------------------------------------------------------*/
 
-const controlSearch = async () => {
+const controlSearch = async (coordinates) => {
   // Check if user geolocation is on
   if (navigator.geolocation) {
-    // Get long and latitude hard code for now
-    let long = 13.0562456;
-    let lat = 55.6108462;
+    // Get latitude and longitude, this will be passed in
+    const lat = coordinates.latitude;
+    const long = coordinates.longitude;
 
     // Show loader
     showLoader(elements.loaderIcon);
-
-    // TODO : this is not working
-    navigator.geolocation.getCurrentPosition((position) => {
-      long = position.coords.longitude;
-      lat = position.coords.latitude;
-    });
 
     // New search object and add state
     state.search = new Search(`${key}/${long},${lat}`);
@@ -185,4 +203,8 @@ const controlSearch = async () => {
   }
 };
 
-controlSearch();
+
+getGeolocation.then((getCoordinates) => {
+  // Pass the resolve from getGeolocation, this will be the latitude and longitude as an object
+  controlSearch(getCoordinates);
+});

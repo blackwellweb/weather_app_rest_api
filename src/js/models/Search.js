@@ -30,7 +30,7 @@ export default class Search {
       const res = await axios(`${proxy}https://api.darksky.net/forecast/${this.query}?units=si`);
 
       this.result = res.data;
-      console.log(this.result);
+      // console.log(this.result);
     } catch (err) {
       console.log(err);
     }
