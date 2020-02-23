@@ -186,6 +186,7 @@ body{
     "logo searchBar";
     align-items: center;
     color: $primaryFontColour;
+    display: none;
 
     @include desktop{
         //margin-top: 2.4rem;
@@ -276,6 +277,7 @@ body{
     "icon temp";
     color: $primaryFontColour;
     margin: 4.8rem 0;
+    margin-top: 12rem; // remove this is you want to show header
 
 
 
