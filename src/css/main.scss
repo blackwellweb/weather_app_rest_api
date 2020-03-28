@@ -419,7 +419,7 @@ body{
 
 .forecast{
     display: grid;
-    justify-self: center;
+    //justify-self: center;
     //grid-template-columns: repeat(3, 1fr);
     grid-template-columns: 6rem 1fr 1fr;
     grid-template-areas: 
@@ -427,6 +427,7 @@ body{
     "icon info info";
     padding:  1.2rem;
     line-height: 1.5;
+    margin-left: 3.4rem;
 
     &__title{
         grid-area: title;
