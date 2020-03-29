@@ -7,7 +7,9 @@
     "start": "webpack-dev-server --config webpack.dev.js --open",
     "build": "webpack --config webpack.prod.js",
     "doc": "jsdoc -c jsdoc.json",
-    "lint": "npx eslint src"
+    "lint": "npx eslint src",
+    "lambdma-serve": "netlify-lambda serve .netlify/functions",
+    "lambdma-build": "netlify-lambda build .netlify/functions"
   },
   "author": "Paul Blackwell",
   "license": "ISC",
@@ -38,6 +40,7 @@
   "dependencies": {
     "axios": "^0.19.2",
     "babel-polyfill": "^6.26.0",
-    "bootstrap": "^4.4.1"
+    "bootstrap": "^4.4.1",
+    "netlify-lambda": "^1.6.3"
   }
 }

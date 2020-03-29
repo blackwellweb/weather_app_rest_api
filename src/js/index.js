@@ -12,7 +12,6 @@
 import '../css/main.scss';
 // import { loader } from 'mini-css-extract-plugin';
 import Search from './models/Search';
-import { key } from './key';
 // import elements from './views/base';
 import renderMainView from './views/mainView';
 import { showLoader, hideLoader } from './models/loader';
@@ -138,7 +137,7 @@ const controlSearch = async (coordinates) => {
     showLoader(elements.loaderIcon);
 
     // New search object and add state
-    state.search = new Search(`${key}/${long},${lat}`);
+    state.search = new Search(`${long},${lat}`);
 
     try {
       //  Search for weather
