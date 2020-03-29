@@ -36,10 +36,10 @@ export default class Search {
         lat: '1',
       });
 
-      console.log(res);
+      // console.log(res);
 
       this.result = res.data;
-      // console.log(this.result);
+      console.log(this.result);
     } catch (err) {
       console.log(err);
     }
