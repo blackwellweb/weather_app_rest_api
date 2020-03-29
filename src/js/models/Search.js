@@ -25,9 +25,6 @@ export default class Search {
 
 
   async getResults() {
-    const { long, lat } = this.query;
-
-
     try {
       // const proxy = 'https://cors-anywhere.herokuapp.com/';
       // const res = await axios(`${proxy}https://api.darksky.net/forecast/${this.query}?units=si`);
@@ -35,11 +32,12 @@ export default class Search {
       // Post the long and lant to the server and it will send back data form the darkSky API
       // This doesn't work on localhost
       const res = await axios.post('/.netlify/functions/getData', {
-        long,
-        lat,
+        long: '1',
+        lat: '1',
       });
 
-      // console.log(res);
+
+      console.log(this.query);
 
       this.result = res.data;
       // console.log(this.result);
