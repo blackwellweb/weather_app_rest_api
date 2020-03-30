@@ -36,11 +36,7 @@ export default class Search {
       });
 
 
-      console.log(this.query);
-      console.log(res);
-
       this.result = res.data;
-      console.log(this.result);
     } catch (err) {
       console.log(err);
     }
