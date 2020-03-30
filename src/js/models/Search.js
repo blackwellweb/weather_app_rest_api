@@ -32,8 +32,7 @@ export default class Search {
       // Post the long and lant to the server and it will send back data form the darkSky API
       // This doesn't work on localhost
       const res = await axios.post('/.netlify/functions/getData', {
-        long: '1',
-        lat: '1',
+        query: this.query,
       });
 
 
